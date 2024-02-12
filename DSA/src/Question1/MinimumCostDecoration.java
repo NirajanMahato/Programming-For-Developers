@@ -1,4 +1,3 @@
-package Question1;
 //1. a)You are a planner working on organizing a series of events in a row of n venues. Each venue can be decorated with
 // one of the k available themes. However, adjacent venues should not have the same theme. The cost of decorating
 // each venue with a certain theme varies.
@@ -16,6 +15,8 @@ package Question1;
 // Example: Input: [[1, 3, 2], [4, 6, 8], [3, 1, 5]] Output: 7
 // Explanation: Decorate venue 0 with theme 0, venue 1 with theme 1, and venue 2 with theme 0. Minimum cost: 1 +
 // 6 + 1 = 7.
+
+package Question1;
 
 public class MinimumCostDecoration {
 
