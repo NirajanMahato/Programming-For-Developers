@@ -1,6 +1,5 @@
 package Question1;
-// Question 1
-// a)You are a planner working on organizing a series of events in a row of n venues. Each venue can be decorated with
+//1. a)You are a planner working on organizing a series of events in a row of n venues. Each venue can be decorated with
 // one of the k available themes. However, adjacent venues should not have the same theme. The cost of decorating
 // each venue with a certain theme varies.
 // The costs of decorating each venue with a specific theme are represented by an n x k cost matrix. For example,
