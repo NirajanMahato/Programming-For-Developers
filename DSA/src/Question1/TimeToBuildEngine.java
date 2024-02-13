@@ -14,7 +14,6 @@
 //Note: The splitting process occurs in parallel, and the goal is to minimize the total time required to build all the engines using the available engineers while considering the time cost of splitting.
 
 package Question1;
-
 import java.util.Arrays;
 
 public class TimeToBuildEngine {
