@@ -66,13 +66,13 @@ public class ImageDownloader extends JFrame {
         Color whiteColor = Color.WHITE;
         Color blackColor = Color.BLACK;
         Color blueColor = new Color(18, 23, 92);
-        Color lightBlueColor = new Color(235, 236, 247);
+        // Color lightBlueColor = new Color(235, 236, 247);
         Color greyColor = Color.lightGray;
 
         getContentPane().setBackground(blueColor);
         urlField.setFont(roboto14);
         urlField.setForeground(blueColor);
-        urlField.setBackground(lightBlueColor);
+        urlField.setBackground(whiteColor);
         addButton.setFont(roboto14);
         addButton.setBackground(blueColor);
         addButton.setForeground(whiteColor);
@@ -92,16 +92,16 @@ public class ImageDownloader extends JFrame {
         downloadList.setCellRenderer(new DownloadListRenderer());
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(blueColor);
+        buttonPanel.setBackground(whiteColor);
 
         JButton pauseResumeButton = new JButton("Pause/Resume");
         pauseResumeButton.setFont(roboto14);
-        pauseResumeButton.setBackground(blueColor);
+        pauseResumeButton.setBackground(whiteColor);
         pauseResumeButton.setForeground(blackColor);
 
         JButton cancelButton = new JButton("Cancel");
         cancelButton.setFont(roboto14);
-        cancelButton.setBackground(blueColor);
+        cancelButton.setBackground(whiteColor);
         cancelButton.setForeground(blackColor);
 
         buttonPanel.add(pauseResumeButton);
