@@ -28,13 +28,14 @@ public class MazeVirtualGame {
         }
     }
 
-    public static int shortestPath(char[][] grid) {
+    public static int shortestPath(char[][] grid) {     // Method to find the shortest path in the maze
         int m = grid.length;
         int n = grid[0].length;
         Set<Character> keys = new HashSet<>();
         Map<Character, int[]> doors = new HashMap<>();
         int start_x = -1, start_y = -1;
 
+        // Iterate through the grid to find keys, doors, and starting position
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 char cell = grid[i][j];
@@ -56,6 +57,7 @@ public class MazeVirtualGame {
         return minDistance[0] == Integer.MAX_VALUE ? -1 : minDistance[0];
     }
 
+    // Depth-first search to explore possible paths in the maze
     private static void dfs(char[][] grid, int x, int y, List<Character> keys, Map<Character, int[]> doors,
                             boolean[][] visited, String collectedKeys, int distance, int[] minDistance) {
         if (distance >= minDistance[0])
@@ -91,6 +93,7 @@ public class MazeVirtualGame {
         visited[x][y] = false;
     }
 
+    // Example usage
     public static void main(String[] args) {
         char[][] grid = {
                 { 'S', 'P', 'q', 'P', 'P' },

@@ -18,7 +18,7 @@ import java.util.List;
 public class IndividualsSecret {
     public static void main(String[] args) {
         int n = 5;
-        List<int[]> intervals = new ArrayList<>();
+        List<int[]> intervals = new ArrayList<>();  // List to store intervals representing known connections
         intervals.add(new int[]{0, 2});
         intervals.add(new int[]{1, 3});
         intervals.add(new int[]{2, 4});
@@ -26,6 +26,7 @@ public class IndividualsSecret {
 
         List<Integer> knownIndividuals = findKnownIndividuals(n, intervals, firstPerson);
 
+        // Printing known individuals
         System.out.print("[");
         for (int i = 0; i < knownIndividuals.size(); i++) {
             System.out.print(knownIndividuals.get(i));
@@ -41,14 +42,13 @@ public class IndividualsSecret {
         boolean[] isKnown = new boolean[n];
         isKnown[firstPerson] = true;
 
-        // Add the first person to the list first
-        knownIndividuals.add(firstPerson);
+        knownIndividuals.add(firstPerson);    // Add the first person to the list first
 
-        for (int[] interval : intervals) {
+        for (int[] interval : intervals) {     // Iterate through intervals to find known individuals
             int start = interval[0];
             int end = interval[1];
 
-            for (int i = start; i <= end; i++) {
+            for (int i = start; i <= end; i++) {    // Mark individuals within the interval as known
                 if (!isKnown[i]) {
                     knownIndividuals.add(i);
                     isKnown[i] = true;

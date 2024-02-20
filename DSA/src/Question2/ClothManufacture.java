@@ -15,7 +15,6 @@
 package Question2;
 
 public class ClothManufacture {
-    // Method to calculate the minimum number of moves
     public static int minMove(int[] machines) {
         int totDresses = 0;// Initializing the variable for total dresses
         int noOfMachine = machines.length; // Calculating the length of machines
@@ -31,7 +30,6 @@ public class ClothManufacture {
         }
 
         // Calculating the dresses each machine should have
-
         int dressesPerMachine = totDresses / noOfMachine;
 
 

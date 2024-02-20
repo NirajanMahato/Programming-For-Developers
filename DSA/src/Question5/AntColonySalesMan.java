@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.Random;
 
 class AntColony {
-    private int[][] distanceMatrix;
+    private int[][] distanceMatrix;     // Matrix distances between cities
     private int numAnts;
-    private double[][] pheromoneMatrix;
-    private double[][] probabilities;
+    private double[][] pheromoneMatrix;  // Matrix representing pheromone levels between cities
+    private double[][] probabilities;           // Matrix representing probabilities of selecting next cities
     private int numCities;
-    private int[] bestTour;
+    private int[] bestTour;     // Array to store the best tour found
     private int bestTourLength;
     private double evaporationRate;
     private double alpha;
@@ -28,7 +28,7 @@ class AntColony {
         initializePheromones();
     }
 
-    private void initializePheromones() {
+    private void initializePheromones() {       // Method to initialize pheromone levels
         double initialPheromone = 1.0 / numCities;
         for (int i = 0; i < numCities; i++) {
             for (int j = 0; j < numCities; j++) {
@@ -39,7 +39,7 @@ class AntColony {
         }
     }
 
-    public void solve(int maxIterations) {
+    public void solve(int maxIterations) {      // Method to solve the TSP problem using Ant Colony Optimization
         bestTourLength = Integer.MAX_VALUE;
         bestTour = new int[numCities];
         Random random = new Random();
@@ -71,6 +71,7 @@ class AntColony {
         }
     }
 
+    // Method to calculate probabilities of selecting next cities
     private void calculateProbabilities(int city, boolean[] visited) {
         double total = 0.0;
         for (int i = 0; i < numCities; i++) {
@@ -88,6 +89,7 @@ class AntColony {
         }
     }
 
+    // Method to select next city based on probabilities
     private int selectNextCity(int city) {
         double[] probabilities = this.probabilities[city];
         double r = Math.random();
@@ -101,6 +103,7 @@ class AntColony {
         return -1;
     }
 
+    // Method to update pheromone levels
     private void updatePheromones() {
         // Evaporation
         for (int i = 0; i < numCities; i++) {

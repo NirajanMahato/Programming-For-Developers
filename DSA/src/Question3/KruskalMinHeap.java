@@ -15,7 +15,7 @@ class Edge implements Comparable<Edge> {
         this.weight = weight;
     }
 
-    @Override
+    @Override           // Comparator to compare edges based on weight
     public int compareTo(Edge other) {
         return Integer.compare(this.weight, other.weight);
     }
@@ -29,8 +29,8 @@ class DisjointSet {
         parent = new int[size];
         rank = new int[size];
         for (int i = 0; i < size; i++) {
-            parent[i] = i;
-            rank[i] = 0;
+            parent[i] = i; // Initialize parent of each vertex to itself
+            rank[i] = 0; // Initialize rank of each vertex to 0
         }
     }
 
