@@ -1,32 +1,25 @@
 package Classes;
+
+import CustomizedComponents.RoundedButton;
+import CustomizedComponents.RoundedLabel;
+import CustomizedComponents.RoundedPanel;
+import Entities.User;
+
 import javax.imageio.ImageIO;
-import javax.print.URIException;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
-
-import com.mysql.cj.exceptions.RSAException;
-import com.mysql.cj.protocol.Resultset;
-
 import java.awt.*;
-    import java.awt.event.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-    import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Random;
 import java.net.URI;
-import java.net.URISyntaxException;
-
-import Entities.User;
-    import CustomizedComponents.*;
+import java.sql.*;
     public class MainPage {
         String email;
         String username;
@@ -63,6 +56,9 @@ import Entities.User;
         RoundedPanel RSPanelForFriends;
         RoundedPanel RSPanelforMessaging;
         JPanel newsPanel;
+
+        JPanel recommendationPanel; // Declare the recommendation panel
+
         RoundedPanel postPanel;
         RoundedPanel searchPanel;
         RoundedPanel searchPanelForMessaging;
@@ -115,7 +111,7 @@ import Entities.User;
 
 
             mainPageFrame = new JFrame();
-            mainPageFrame.setTitle("DSA Assignment");
+            mainPageFrame.setTitle("SocialNetworking App");
             mainPageFrame.setSize(1300,750);
             mainPageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             mainPageFrame.setLocationRelativeTo(null);
@@ -624,6 +620,18 @@ import Entities.User;
             friendsPane.setBounds(0,130,543,600);
             friendsPane.setBorder(new LineBorder(Color.white));
 
+            // Adding the recommendation panel
+            recommendationPanel = new JPanel();
+            recommendationPanel.setBackground(Color.white);
+            recommendationPanel.setPreferredSize(new Dimension(500, 10000));
+            recommendationPanel.setLayout(null);
+
+            JScrollPane recommendationPane = new JScrollPane(recommendationPanel);
+            recommendationPane.setBounds(0, 130, 543, 600);
+            recommendationPane.setBorder(new LineBorder(Color.white));
+
+
+
             searchTextField.addKeyListener(new KeyListener() {
                 @Override
                 public void keyTyped(KeyEvent e){
@@ -795,6 +803,10 @@ import Entities.User;
                                 friendsListPanel.add(followingLabel[i]);
 
                                 friendsListPanel.repaint();
+                                FriendRecommendation friendRecommendation = new FriendRecommendation(connection);
+                                friendRecommendation.showRecommendations(username);
+
+
                             }
                         } catch (SQLException e1) {
                             e1.printStackTrace();
@@ -821,7 +833,7 @@ import Entities.User;
             newsPanel.setBackground(Color.white);
             newsPanel.setBounds(810,30,600,600);
 
-            newsLabel = new JLabel("");
+            newsLabel = new JLabel("News");
             newsLabel.setForeground(Color.black);
             newsLabel.setFont(new Font("Helvetica",Font.BOLD,20));
             newsLabel.setBounds(0,0,200,50);
@@ -1538,3 +1550,7 @@ public boolean doesTableExist(Connection connection, String tableName) {
     }
     }
 }
+
+
+
+
